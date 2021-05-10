@@ -14,5 +14,12 @@ namespace lib.Library.Services
             return context.Movies
                 .OrderBy(movie => movie.Title);
         }
+
+        public Movie GetMovieForMovieId(int movieId)
+        {
+            return context.Movies
+                .Where(m => m.Id == movieId)
+                .First();
+        }
     }
 }
