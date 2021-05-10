@@ -20,7 +20,7 @@ namespace lib.Library.Services
             return context.GenreMovies
                 .Where(g => g.MovieId == movieId)
                 .Select(g => g.GenreId)
-                .FirstOrDefault();
+                .First();
         }
     }
 }
