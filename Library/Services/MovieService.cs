@@ -21,5 +21,12 @@ namespace lib.Library.Services
                 .Where(m => m.Id == movieId)
                 .First();
         }
+
+        public IEnumerable<Movie> GetMoviesForMovieIds(List<int> ids)
+        {
+            return context.Movies
+                .Where(m => ids.Contains(Convert.ToInt32(m.Id)))
+                .ToList();
+        }
     }
 }
