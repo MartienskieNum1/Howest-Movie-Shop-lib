@@ -35,5 +35,19 @@ namespace lib.Library.Services
                 .Select(o => o.UnitPrice)
                 .First();
         }
+
+        public void DeleteOrderDetailsForOrderId(int orderId)
+        {
+            List<ShopOrderDetail> orderDetails = context.ShopOrderDetails
+                                                    .Where(o => o.OrderId == orderId)
+                                                    .ToList();
+
+            foreach (ShopOrderDetail orderDetail in orderDetails)
+            {
+                context.Remove(orderDetail);
+            }
+
+            context.SaveChanges();
+        }
     }
 }
