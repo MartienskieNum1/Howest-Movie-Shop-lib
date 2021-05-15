@@ -32,5 +32,14 @@ namespace lib.Library.Services
             return Convert.ToInt32(shopOrder.Id);
         }
 
+        public void Delete(int orderId)
+        {
+            ShopOrder order = context.ShopOrders
+                                .Where(o => o.Id == orderId)
+                                .First();
+            
+            context.Remove(order);
+            context.SaveChanges();
+        }
     }
 }
