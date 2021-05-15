@@ -17,6 +17,13 @@ namespace lib.Library.Services
                 .First());
         }
 
+        public ShopCustomer GetCustomerForCustomerId(int customerId)
+        {
+            return context.ShopCustomers
+                .Where(c => c.Id == customerId)
+                .First();
+        }
+
         public bool CustomerExistsForUserId(string userId)
         {
             var results = context.ShopCustomers
