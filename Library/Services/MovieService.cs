@@ -12,7 +12,8 @@ namespace lib.Library.Services
         public IEnumerable<Movie> All()
         {
             return context.Movies
-                .OrderBy(movie => movie.Title);
+                .OrderBy(movie => movie.Title)
+                .ToList();
         }
 
         public Movie GetMovieForMovieId(int movieId)
