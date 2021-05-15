@@ -10,6 +10,12 @@ namespace lib.Library.Services
     {
         moviesContext context = new moviesContext();
 
+        public IEnumerable<ShopOrder> All()
+        {
+            return context.ShopOrders
+                .OrderBy(o => o.Id);
+        }
+
         public int Add(int customerId, string street, string city, string postalCode, string country)
         {
             ShopOrder shopOrder = new ShopOrder();
