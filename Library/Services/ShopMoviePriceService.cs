@@ -15,14 +15,6 @@ namespace lib.Library.Services
                 .OrderBy(price => price.MovieId);
         }
 
-        public decimal GetPriceForMovieId(int movieId)
-        {
-            return context.ShopMoviePrices
-                            .Where(p => p.MovieId == movieId)
-                            .Select(p=> p.UnitPrice)
-                            .First();
-        }
-
         public ShopMoviePrice Add(long movieId, decimal unitPrice)
         {
             ShopMoviePrice shopMoviePrice = new ShopMoviePrice();
