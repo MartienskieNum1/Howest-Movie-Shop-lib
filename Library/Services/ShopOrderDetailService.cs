@@ -19,5 +19,21 @@ namespace lib.Library.Services
             context.Add(shopOrderDetail);
             context.SaveChanges();
         }
+
+        public List<int> GetMovieIdsForOrderId(int orderId)
+        {
+            return context.ShopOrderDetails
+                .Where(o => o.OrderId == orderId)
+                .Select(o => Convert.ToInt32(o.MovieId))
+                .ToList();
+        }
+
+        public decimal GetPriceForMovieIdAndOrderId(int movieId, int orderId)
+        {
+            return context.ShopOrderDetails
+                .Where(o => o.OrderId == orderId && o.MovieId == movieId)
+                .Select(o => o.UnitPrice)
+                .First();
+        }
     }
 }
