@@ -15,19 +15,5 @@ namespace lib.Library.Services
                 .OrderBy(movie => movie.Title)
                 .ToList();
         }
-
-        public Movie GetMovieForMovieId(int movieId)
-        {
-            return context.Movies
-                .Where(m => m.Id == movieId)
-                .First();
-        }
-
-        public IEnumerable<Movie> GetMoviesForMovieIds(List<int> ids)
-        {
-            return context.Movies
-                .Where(m => ids.Contains(Convert.ToInt32(m.Id)))
-                .ToList();
-        }
     }
 }
